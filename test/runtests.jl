@@ -190,8 +190,14 @@ cd(dirname(@__FILE__)) do
     if !o_ts.anynonpass
         println("    \033[32;1mSUCCESS\033[0m")
     else
-        println("    \033[31;1mFAILURE\033[0m")
         Base.Test.print_test_errors(o_ts)
+        println("    \033[31;1mFAILURE\033[0m")
+        if !isinteractive()
+            err_exit = lowercase(get(ENV, "JULIA_TEST_EXIT_ON_ERROR", "1"))
+            if err_exit in ["1", "yes", "y"]
+                exit(-1)
+            end
+        end
         error()
     end
 end
