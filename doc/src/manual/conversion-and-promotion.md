@@ -50,8 +50,8 @@ storing the result in the array.
 This is done via the `convert` function.
 
 The `convert` function generally takes two arguments: the first is a type object and the second is
-a value to convert to that type. The returned value is the value converted to an instance of given type.
-The simplest way to understand this function is to see it in action:
+a value to convert to that type. The returned value is the value converted to an instance of the given
+type. The simplest way to understand this function is to see it in action:
 
 ```jldoctest
 julia> x = 12
